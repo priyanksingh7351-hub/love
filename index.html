@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To My Beloved Soulmate 💗</title>
+  <style>
+    :root { --rose:#b74765; --deep:#7b2946; --cream:#fff8f4; --pink:#f9dce4; }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; min-height:100vh; padding:36px 16px;
+      background: radial-gradient(circle at top left, #ffe8ee, transparent 36%),
+                  linear-gradient(135deg, #fff7f1, #fce3ea 55%, #fff4ec);
+      color:#593440; font-family: Georgia, 'Times New Roman', serif;
+      display:flex; justify-content:center; align-items:center;
+    }
+    .letter {
+      width:min(900px, 100%); background:rgba(255,255,255,.88);
+      border:1px solid #f0c6d1; border-radius:26px; padding:clamp(22px,5vw,52px);
+      box-shadow:0 22px 70px rgba(128,43,75,.16); position:relative; overflow:hidden;
+    }
+    .letter:before { content:"♡"; position:absolute; right:24px; top:0; font-size:120px; color:#f9e0e7; z-index:0; }
+    .content { position:relative; z-index:1; }
+    .eyebrow { text-align:center; letter-spacing:4px; text-transform:uppercase; font:600 11px Arial,sans-serif; color:#b76a80; }
+    h1 { text-align:center; font-size:clamp(30px,5vw,48px); line-height:1.15; color:var(--deep); margin:14px 0 28px; font-weight:normal; }
+    .heart { color:#d65a7c; }
+    .message { max-width:720px; margin:auto; font-size:clamp(17px,2.2vw,21px); line-height:1.9; text-align:center; }
+    .message p { margin:0 0 18px; }
+    .photos { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:34px auto 30px; max-width:760px; }
+    figure { margin:0; border:7px solid white; border-radius:16px; overflow:hidden; box-shadow:0 9px 24px rgba(96,35,56,.15); background:#fff; transform:rotate(-1deg); }
+    figure:nth-child(2) { transform:rotate(1deg); }
+    figure img { width:100%; height:340px; object-fit:cover; display:block; }
+    figcaption { text-align:center; padding:10px 8px 8px; font:italic 14px Georgia,serif; color:#a34d68; }
+    .signature { text-align:center; margin-top:25px; font-size:22px; color:var(--deep); font-style:italic; }
+    .signature span { display:block; font:normal 13px Arial,sans-serif; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; color:#b76a80; }
+    .bottom { text-align:center; color:#c16c84; margin-top:24px; letter-spacing:8px; }
+    @media(max-width:600px) {
+      body { padding:14px 10px; }
+      .photos { grid-template-columns:1fr; gap:22px; }
+      figure, figure:nth-child(2) { transform:none; }
+      figure img { height:auto; max-height:480px; object-fit:contain; background:#faf2f4; }
+      .letter { border-radius:20px; }
+    }
+
+/* Balloon archery unlock game */
+[hidden]{display:none!important}
+.game-screen{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;background:radial-gradient(circle at 20% 15%,#71405f,#261a34 72%);color:#fff8fb;font-family:Arial,sans-serif}
+.game-panel{width:min(900px,100%);min-height:min(650px,94vh);padding:clamp(18px,4vw,34px);border:1px solid #ffffff40;border-radius:26px;background:#211329c9;box-shadow:0 24px 80px #0006;display:flex;flex-direction:column;text-align:center}
+.game-kicker{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#ffd8e4}.game-panel h1{font:normal clamp(28px,5vw,44px) Georgia,serif;color:#fff5f8;margin:12px 0}.game-panel p{font-size:14px;line-height:1.6;color:#f8dce7}.game-stats{margin:8px;color:#ffe3ec;font-size:14px}
+.arena{position:relative;flex:1;min-height:310px;margin-top:10px;border:1px solid #ffffff2e;border-radius:20px;overflow:hidden;cursor:crosshair;touch-action:manipulation;background:radial-gradient(circle at 50% 110%,#ffb9d526,transparent 38%),linear-gradient(#ffffff0b,#00000020)}.arena:before{content:"";position:absolute;inset:0;opacity:.2;pointer-events:none;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:37px 37px}
+.balloon{position:absolute;width:54px;height:68px;left:72%;top:30%;border-radius:52% 48% 48% 52%/43% 43% 57% 57%;transform:translate(-50%,-50%);background:radial-gradient(circle at 28% 23%,#fff8fb 0 5%,#ff9fbd 10%,#f04482 45%,#b7185b 100%);box-shadow:inset -7px -8px 12px #6d003133,0 0 25px #ff609d59;z-index:3}.balloon:before{content:"";position:absolute;width:12px;height:18px;left:12px;top:8px;border-radius:50%;background:#ffffff66;transform:rotate(25deg)}.balloon:after{content:"";position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);border-left:5px solid transparent;border-right:5px solid transparent;border-top:9px solid #d62c70}
+.bow{position:absolute;left:20px;bottom:20px;width:64px;height:140px;z-index:4;pointer-events:none}.bow svg{width:100%;height:100%}.arrow{position:absolute;left:79px;bottom:88px;width:54px;height:3px;z-index:5;transform-origin:0 50%;background:#f8e5c9;pointer-events:none}.arrow:after{content:"";position:absolute;right:-1px;top:-4px;border-left:10px solid #fff0d5;border-top:5px solid transparent;border-bottom:5px solid transparent}.aim-line{position:absolute;left:84px;bottom:90px;width:180px;border-top:1px dashed #ffeff65c;transform-origin:0 50%;pointer-events:none}.hint{position:absolute;right:14px;bottom:12px;color:#fff4f9b3;font-size:11px;text-align:right;line-height:1.5;pointer-events:none}.game-message{min-height:24px;text-align:center;font-size:13px;color:#ffe0eb;margin:12px 0}.game-btn{align-self:center;border:0;border-radius:99px;padding:12px 20px;cursor:pointer;background:linear-gradient(135deg,#ffbfd2,#ff7ca7);color:#54233b;font-weight:700}.balloon.popped{animation:pop .28s ease-out forwards}@keyframes pop{0%{transform:translate(-50%,-50%) scale(1);opacity:1}70%{transform:translate(-50%,-50%) scale(1.6);opacity:.7}100%{transform:translate(-50%,-50%) scale(.05);opacity:0}}
+@media(max-width:600px){.game-panel{min-height:92vh}.arena{min-height:300px}.bow{left:12px;bottom:16px;transform:scale(.86);transform-origin:bottom left}.arrow{left:66px}.aim-line{left:70px}}
+
+  </style>
+</head>
+<body>
+  <section class="game-screen" id="gameScreen">
+    <div class="game-panel">
+      <div class="game-kicker">A tiny challenge for you</div>
+      <h1>Pop the Balloon 💘</h1>
+      <p>Use your bow and arrow to burst the moving balloon. Hit it to unlock your love letter.</p>
+      <div class="game-stats">🏹 Arrows: <b id="arrowsLeft">10</b> &nbsp; · &nbsp; 🎯 Hit the balloon to continue</div>
+      <div class="arena" id="arena">
+        <div class="balloon" id="balloon"></div>
+        <div class="bow" aria-hidden="true"><svg viewBox="0 0 70 150"><path d="M48 5 Q-5 75 48 145" fill="none" stroke="#d7a16e" stroke-width="6" stroke-linecap="round"/><path d="M48 5 L48 145" stroke="#fff0d8"/></svg></div>
+        <div class="arrow" id="arrow"></div><div class="aim-line" id="aimLine"></div>
+        <div class="hint">Move pointer to aim<br>Click / tap to shoot</div>
+      </div>
+      <div class="game-message" id="gameMessage">You have 10 arrows. The balloon won’t stay still! 😉</div>
+      <button class="game-btn" id="restartBtn">Restart Game ↻</button>
+    </div>
+  </section>
+  <main class="letter" id="letterPage" hidden>
+    <div class="content">
+      <div class="eyebrow">A little piece of my heart</div>
+      <h1>To My Beloved Soulmate <span class="heart">♥</span></h1>
+      <section class="message">
+        <p>Just as sunflowers turn towards the warm sun and daisies dance in the sweet spring breeze, every beat of my heart finds its way to you.</p>
+        <p>You are my sweetest joy, my brightest blessing, and my greatest dream come true. With you, every single ordinary moment becomes magical.</p>
+      </section>
+      <section class="photos" aria-label="Our special memories">
+        <figure>
+          <img src="images/photo-1.jpeg" alt="A beautiful memory together">
+          <figcaption>A moment I want to keep forever ♡</figcaption>
+        </figure>
+        <figure>
+          <img src="images/photo-2.jpeg" alt="A sweet, loving moment together">
+          <figcaption>My favorite place is close to you ♡</figcaption>
+        </figure>
+      </section>
+      <div class="signature"><span>Forever yours,</span>Your Cupid 🏹</div>
+      <div class="bottom">♥　♡　♥</div>
+    </div>
+  </main>
+
+<script>
+(()=>{const screen=document.getElementById('gameScreen'),arena=document.getElementById('arena'),balloon=document.getElementById('balloon'),arrow=document.getElementById('arrow'),aimLine=document.getElementById('aimLine'),arrowsEl=document.getElementById('arrowsLeft'),msg=document.getElementById('gameMessage'),restart=document.getElementById('restartBtn'),letter=document.getElementById('letterPage');let arrows=10,running=true,shooting=false,x=.72,y=.30,vx=.0017,vy=.0011,angle=-.2,last=0,token=0;function rect(){return arena.getBoundingClientRect()}function place(){let r=rect();balloon.style.left=x*r.width+'px';balloon.style.top=y*r.height+'px'}function origin(){return{x:innerWidth<=600?76:91,y:rect().height-91}}function resetArrow(){let o=origin(),r=rect();arrow.style.transition='none';arrow.style.left=o.x+'px';arrow.style.bottom=(r.height-o.y)+'px';arrow.style.transform=`rotate(${angle}rad)`;arrow.style.opacity='1';aimLine.style.transform=`rotate(${angle}rad)`}function aim(e){if(!running||shooting)return;let r=rect(),o=origin();angle=Math.atan2(e.clientY-r.top-o.y,e.clientX-r.left-o.x);angle=Math.max(-1.45,Math.min(.95,angle));resetArrow()}function animate(t){if(!running)return;if(!last)last=t;let dt=Math.min(t-last,32);last=t;x+=vx*dt;y+=vy*dt;if(x>.91||x<.12){vx*=-1;x=Math.max(.12,Math.min(.91,x))}if(y>.77||y<.13){vy*=-1;y=Math.max(.13,Math.min(.77,y))}if(Math.random()<.012){vx=(Math.random()<.5?-1:1)*(.00125+Math.random()*.00125);vy=(Math.random()<.5?-1:1)*(.00075+Math.random()*.001)}place();requestAnimationFrame(animate)}function pop(){running=false;balloon.classList.add('popped');msg.textContent='Bullseye! 💖 Opening your love letter…';setTimeout(()=>{screen.hidden=true;letter.hidden=false;document.body.style.alignItems='flex-start';scrollTo({top:0,behavior:'smooth'})},850)}function shoot(e){if(!running||shooting||arrows<=0)return;if(e)aim(e);shooting=true;arrows--;arrowsEl.textContent=arrows;let r=rect(),o=origin(),a=angle,sx=o.x,sy=o.y,ex=sx+Math.cos(a)*Math.max(r.width,r.height)*1.25,ey=sy+Math.sin(a)*Math.max(r.width,r.height)*1.25,bx=x*r.width,by=y*r.height,dx=ex-sx,dy=ey-sy,t=Math.max(0,Math.min(1,((bx-sx)*dx+(by-sy)*dy)/(dx*dx+dy*dy))),dist=Math.hypot(bx-(sx+t*dx),by-(sy+t*dy)),id=++token;arrow.style.transition='none';arrow.style.left=sx+'px';arrow.style.bottom=(r.height-sy)+'px';arrow.style.transform=`rotate(${a}rad)`;arrow.style.opacity='1';requestAnimationFrame(()=>{arrow.style.transition='left .34s linear,bottom .34s linear,opacity .15s linear';arrow.style.left=ex+'px';arrow.style.bottom=(r.height-ey)+'px'});setTimeout(()=>{if(id!==token||!running)return;arrow.style.opacity='0';shooting=false;if(dist<30&&t<1.05){pop()}else if(arrows>0){msg.textContent='Missed! The balloon is still moving — aim carefully. 🎯';resetArrow()}else{running=false;msg.textContent='Out of arrows! Try again — you can do it. 💗';restart.textContent='Try Again ↻'}},360)}function reset(){running=true;shooting=false;arrows=10;x=.72;y=.30;vx=(Math.random()<.5?-1:1)*.0018;vy=(Math.random()<.5?-1:1)*.0011;last=0;token++;arrowsEl.textContent=arrows;balloon.classList.remove('popped');screen.hidden=false;letter.hidden=true;document.body.style.alignItems='center';restart.textContent='Restart Game ↻';msg.textContent='You have 10 arrows. The balloon won’t stay still! 😉';place();resetArrow();requestAnimationFrame(animate)}arena.addEventListener('pointermove',aim);arena.addEventListener('pointerdown',e=>{e.preventDefault();shoot(e)});restart.addEventListener('click',reset);addEventListener('resize',()=>{place();resetArrow()});place();resetArrow();requestAnimationFrame(animate)})();
+</script>
+</body>
+</html>
