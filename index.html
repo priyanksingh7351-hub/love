@@ -64,22 +64,27 @@
     }
   </style>
 </head>
-<body class="w-screen h-screen bg-gradient-to-br from-rose-900 via-pink-950 to-slate-950 text-white relative flex items-center justify-center">
+<body class="w-screen h-screen bg-gradient-to-br from-rose-900 via-pink-950 to-slate-950 text-white relative flex items-center justify-center overflow-hidden">
+
+  <!-- Background Music from repo file (bgm lov.mp4) -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="bgm lov.mp4" type="audio/mp4">
+  </audio>
 
   <!-- Ambient glowing blobs -->
   <div class="glow-orb w-72 h-72 sm:w-96 sm:h-96 bg-rose-500 top-10 left-5"></div>
   <div class="glow-orb w-80 h-80 sm:w-[28rem] sm:h-[28rem] bg-pink-600 bottom-10 right-5" style="animation-delay: -6s;"></div>
   <div class="glow-orb w-64 h-64 bg-amber-400/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="animation-delay: -3s;"></div>
 
-  <!-- Audio Toggle Button -->
-  <button id="soundToggle" class="absolute top-4 right-4 z-30 p-2.5 sm:p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-rose-200 transition-all flex items-center gap-2 text-xs sm:text-sm font-medium shadow-lg">
-    <svg id="soundIconOn" class="w-5 h-5 text-pink-400" fill="currentColor" viewBox="0 0 24 24">
+  <!-- Audio Toggle Button (Z-index high + pointer-events safe) -->
+  <button id="soundToggle" type="button" class="absolute top-4 right-4 z-50 p-2.5 sm:p-3 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 backdrop-blur-md border border-white/20 text-rose-200 transition-all flex items-center gap-2 text-xs sm:text-sm font-medium shadow-lg cursor-pointer">
+    <svg id="soundIconOn" class="w-5 h-5 text-pink-400 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
       <path d="M13.5 4.06c0-1.33-1.61-2-2.55-1.06L6.88 7H4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h2.88l4.07 4c.94.94 2.55.28 2.55-1.05V4.06zM19 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM16.5 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
     </svg>
-    <svg id="soundIconOff" class="w-5 h-5 text-gray-400 hidden" fill="currentColor" viewBox="0 0 24 24">
+    <svg id="soundIconOff" class="w-5 h-5 text-gray-400 hidden pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
       <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27l4.73 4.73H4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h2.88l4.07 4c.94.94 2.55.28 2.55-1.05v-5.46l4.45 4.45c-.47.33-1 .61-1.55.79v2.05c1.08-.28 2.08-.78 2.94-1.44l2.46 2.46L22 20.73 4.27 3zM12 4.06c0-.8-.58-1.28-1.21-1.28-.35 0-.7.15-.94.39L7.88 5.14 12 9.26V4.06z"/>
     </svg>
-    <span class="hidden sm:inline">Audio</span>
+    <span id="soundText" class="hidden sm:inline pointer-events-none">Music</span>
   </button>
 
   <!-- ======================== PAGE 1: GAME SCREEN ======================== -->
@@ -115,13 +120,13 @@
     </footer>
   </main>
 
-  <!-- ======================== PAGE 2: LOVE LETTER / CELEBRATION ======================== -->
-  <section id="letterPage" class="hidden absolute inset-0 z-20 flex items-center justify-center p-3 sm:p-6 opacity-0 transition-all duration-1000 transform scale-95 overflow-y-auto custom-scroll">
+  <!-- ======================== PAGE 2: LOVE LETTER / CELEBRATION (PERFECT CENTER ALIGNED) ======================== -->
+  <section id="letterPage" class="hidden fixed inset-0 z-40 flex items-center justify-center p-3 sm:p-6 opacity-0 transition-all duration-700 transform scale-95 overflow-y-auto custom-scroll">
     
-    <div class="card-glass w-full max-w-md sm:max-w-xl rounded-3xl p-5 sm:p-8 text-slate-800 shadow-2xl relative border border-rose-200/80 my-auto transform transition-all duration-700 max-h-[94vh] overflow-y-auto custom-scroll">
+    <div class="card-glass w-full max-w-md sm:max-w-xl mx-auto rounded-3xl p-5 sm:p-8 text-slate-800 shadow-2xl relative border border-rose-200/80 my-auto transform transition-all duration-700 max-h-[92vh] overflow-y-auto custom-scroll">
       
-      <div class="absolute -top-12 -right-12 w-28 h-28 bg-rose-500/10 rounded-full blur-xl"></div>
-      <div class="absolute -bottom-10 -left-10 w-28 h-28 bg-pink-500/15 rounded-full blur-xl"></div>
+      <div class="absolute -top-12 -right-12 w-28 h-28 bg-rose-500/10 rounded-full blur-xl pointer-events-none"></div>
+      <div class="absolute -bottom-10 -left-10 w-28 h-28 bg-pink-500/15 rounded-full blur-xl pointer-events-none"></div>
 
       <!-- Wax Seal Stamp Header -->
       <div class="flex justify-center -mt-1 mb-3">
@@ -141,8 +146,8 @@
         <div class="h-0.5 w-16 mx-auto bg-gradient-to-r from-transparent via-rose-400 to-transparent my-1.5"></div>
       </div>
 
-     <<!-- Romantic Photo Memories (Polaroid Style) -->
-      <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-5">
+      <!-- Romantic Photo Memories (Polaroid Style) -->
+      <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-5 w-full">
         <!-- Photo 1 -->
         <div class="bg-rose-50/70 p-2 sm:p-2.5 rounded-2xl shadow-md border border-rose-200/80 transform -rotate-2 hover:rotate-0 hover:scale-105 transition-all duration-300 flex flex-col items-center">
           <div class="w-full aspect-[4/5] rounded-xl overflow-hidden bg-rose-100/50 shadow-inner">
@@ -164,7 +169,7 @@
         </div>
       </div>
 
-      <!-- Letter Body (All Cursive & Selective Italics) -->
+      <!-- Letter Body (All Cursive & Selective Italics - Centered & Full Width) -->
       <div class="w-full bg-rose-50/75 rounded-3xl p-5 sm:p-7 border border-rose-200/70 mb-6 shadow-inner relative text-left">
         <!-- Letter Heading -->
         <div class="text-center mb-4">
@@ -229,14 +234,14 @@
 
       <!-- Action Buttons (Centered) -->
       <div class="w-full flex flex-col sm:flex-row items-center justify-center gap-3">
-        <button id="replayBtn" class="w-full sm:w-auto px-7 py-2.5 rounded-full bg-gradient-to-r from-rose-500 via-pink-600 to-rose-600 text-white font-semibold text-xs sm:text-sm shadow-md hover:shadow-rose-400/50 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+        <button id="replayBtn" type="button" class="w-full sm:w-auto px-7 py-2.5 rounded-full bg-gradient-to-r from-rose-500 via-pink-600 to-rose-600 text-white font-semibold text-xs sm:text-sm shadow-md hover:shadow-rose-400/50 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
           </svg>
           <span>Play Again</span>
         </button>
 
-        <button id="copyMessageBtn" class="w-full sm:w-auto px-6 py-2.5 rounded-full bg-white hover:bg-rose-50 text-rose-700 border border-rose-200 font-semibold text-xs sm:text-sm shadow-sm hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+        <button id="copyMessageBtn" type="button" class="w-full sm:w-auto px-6 py-2.5 rounded-full bg-white hover:bg-rose-50 text-rose-700 border border-rose-200 font-semibold text-xs sm:text-sm shadow-sm hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
           <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
           </svg>
@@ -353,6 +358,34 @@
           }, 80);
         } catch (e) { console.warn(e); }
       }
+
+      playSparkleChime() {
+        if (!this.enabled) return;
+        this.init();
+        if (!this.ctx) return;
+        try {
+          const notes = [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98, 2093.00, 2637.02];
+          const startTime = this.ctx.currentTime + 0.05;
+
+          notes.forEach((freq, idx) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, startTime + idx * 0.07);
+
+            gain.gain.setValueAtTime(0, startTime + idx * 0.07);
+            gain.gain.linearRampToValueAtTime(0.18, startTime + idx * 0.07 + 0.03);
+            gain.gain.exponentialRampToValueAtTime(0.0001, startTime + idx * 0.07 + 0.7);
+
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+
+            osc.start(startTime + idx * 0.07);
+            osc.stop(startTime + idx * 0.07 + 0.75);
+          });
+        } catch (e) { console.warn(e); }
+      }
     }
 
     const sound = new SoundEngine();
@@ -360,18 +393,52 @@
     const soundToggle = document.getElementById('soundToggle');
     const soundIconOn = document.getElementById('soundIconOn');
     const soundIconOff = document.getElementById('soundIconOff');
+    const bgMusic = document.getElementById('bgMusic');
 
-    soundToggle.addEventListener('click', () => {
-      sound.enabled = !sound.enabled;
-      if (sound.enabled) {
-        soundIconOn.classList.remove('hidden');
-        soundIconOff.classList.add('hidden');
+    bgMusic.volume = 0.55;
+    let isMusicManuallyPaused = false;
+
+    // Music toggle button (Dedicated Handler - Stops propagation)
+    soundToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+
+      if (bgMusic.paused) {
+        // Resume music
+        isMusicManuallyPaused = false;
+        sound.enabled = true;
         sound.init();
+        bgMusic.play().then(() => {
+          soundIconOn.classList.remove('hidden');
+          soundIconOff.classList.add('hidden');
+        }).catch(err => console.log('Playback error:', err));
       } else {
+        // Stop / Pause music
+        isMusicManuallyPaused = true;
+        sound.enabled = false;
+        bgMusic.pause();
         soundIconOn.classList.add('hidden');
         soundIconOff.classList.remove('hidden');
       }
     });
+
+    // Auto-start music only on the very first screen interaction if user hasn't explicitly muted
+    const tryAutoplay = (e) => {
+      // Don't auto-start if clicked on the toggle button itself
+      if (e.target.closest('#soundToggle')) return;
+      if (!isMusicManuallyPaused && bgMusic.paused) {
+        sound.init();
+        bgMusic.play().then(() => {
+          soundIconOn.classList.remove('hidden');
+          soundIconOff.classList.add('hidden');
+        }).catch(() => {});
+      }
+      window.removeEventListener('pointerdown', tryAutoplay);
+      window.removeEventListener('touchstart', tryAutoplay);
+    };
+
+    window.addEventListener('pointerdown', tryAutoplay);
+    window.addEventListener('touchstart', tryAutoplay);
 
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
@@ -606,7 +673,7 @@
       for (let i = 0; i < 20; i++) {
         simX += simVx * 1.1;
         simY += simVy * 1.1;
-        simVy += 0.08; // subtle gravity
+        simVy += 0.08;
 
         ctx.beginPath();
         ctx.arc(simX, simY, Math.max(1.5, 4 - i * 0.15), 0, Math.PI * 2);
@@ -655,6 +722,8 @@
         void letterPage.offsetWidth;
         letterPage.classList.remove('opacity-0', 'scale-95');
         letterPage.classList.add('opacity-100', 'scale-100');
+
+        sound.playSparkleChime();
 
         confetti({
           particleCount: 120,
@@ -717,6 +786,8 @@
 
     function onPointerDown(e) {
       if (isGameOver || arrow.isFired) return;
+      if (e.target && e.target.closest('#soundToggle')) return;
+      
       sound.init();
       const pos = getEventPos(e);
 
@@ -740,7 +811,6 @@
       const dy = pos.y - bow.y;
       const pullDist = Math.hypot(dx, dy);
 
-      // Inverted direction: Pull down -> shoots UP
       bow.angle = Math.atan2(-dy, -dx);
       bow.power = Math.min(bow.maxPull, pullDist);
     }
@@ -782,7 +852,6 @@
     function update() {
       if (!balloon.popped) {
         balloon.timeOffset += 0.035;
-        // Sway horizontally across top of the screen
         balloon.x = balloon.baseX + Math.sin(balloon.timeOffset) * (width * 0.32);
         balloon.y = Math.max(80, height * 0.22) + Math.cos(balloon.timeOffset * 1.5) * 16;
       }
@@ -790,7 +859,7 @@
       if (arrow.isFired) {
         arrow.x += arrow.vx;
         arrow.y += arrow.vy;
-        arrow.vy += 0.12; // gentle arc
+        arrow.vy += 0.12;
         arrow.angle = Math.atan2(arrow.vy, arrow.vx);
 
         const tipX = arrow.x + Math.cos(arrow.angle) * arrow.length;
@@ -806,7 +875,6 @@
           }
         }
 
-        // Reset arrow if missed screen bounds
         if (arrow.y < -120 || arrow.x < -100 || arrow.x > width + 100 || arrow.y > height + 100) {
           if (!balloon.popped) {
             arrow.isFired = false;
